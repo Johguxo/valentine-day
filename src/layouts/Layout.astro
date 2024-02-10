@@ -1,0 +1,80 @@
+---
+import '@fontsource-variable/onest'
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		color-scheme: light dark;
+	}
+	html {
+		font-family: "Onest Variable",system-ui, sans-serif;
+	}
+	body {
+		background-color: #fcfcfc;
+		color: black;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100vh;
+	}
+	.size-base {
+		font-size: 2rem;
+  }
+	.size-lg {
+		font-size: 2.5rem;
+  }
+	.size-xl {
+		font-size: 3rem;
+  }
+	.size-2xl {
+		font-size: 3.5rem;
+  }
+	.size-3xl {
+		font-size: 4rem;
+  }
+	.size-4xl {
+		font-size: 4.5rem;
+  }
+	.size-5xl {
+		font-size: 5rem;
+  }
+	.size-6xl {
+		font-size: 5.5rem;
+  }
+	.size-7xl {
+		font-size: 6rem;
+  }
+	.size-8xl {
+		font-size: 6.5rem;
+  }
+	.size-9xl {
+		font-size: 7rem;
+  }
+	.size-10xl {
+		font-size: 7.5rem;
+  }
+	.size-11xl {
+		font-size: 8rem;
+  }.size-12xl {
+		font-size: 9rem;
+  }
+</style>

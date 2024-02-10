@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ButtonRed from "../components/ButtonRed.astro";
+import ButtonGreen from "../components/ButtonGreen.astro";
+
+---
+
+
+<Layout title="San Valentin.">
+  <main>
+    <section class="w-full lg:w-[400px] mx-auto py-50 flex flex-col">
+      <img class="h-[200px]" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" id="image-bear" />
+      <h1 class="font-bold text-4xl text-center" id="message">Quisieras ser mi San Valentin</h1>
+      <div class="flex flex-wrap flex-col md:flex-row gap-4 items-center justify-center" id="buttons">
+        <ButtonGreen id="button-yes">Si</ButtonGreen>
+        <ButtonRed id="button-no">No</ButtonRed>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+	const images = [
+  	"https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif",
+		"https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+	];
+	const messages = ["Quisieras ser mi San Valentin", "Wiii :D"];
+  const textNo = [
+    "No",
+    "Estas segur@?",
+    "Realmente segur@??",
+    "De verdad segur@???",
+    "Por favooor",
+    "Solo piensalo un momentito",
+    "Si dices que no, estaré triste",
+    "Estaré muy triste :(",
+    'Estare muy muuuuy triste :"(',
+    'Estare muy muuuuy muuuuy triste :"(',
+    "Ok esta bien, pararé de preguntar...",
+    "Estoy jugando, porfavoor di que SIIII",
+    'Estare muy muuuuy muuuuuy muuuuy triste :"(',
+    "Estas rompiendo mi corazón",
+    "Tu te lo pierdes :P, chau!",
+  ];
+
+	const sizeButton = [
+		'sm',
+		'base',
+		'lg',
+		'xl',
+		'2xl',
+		'3xl',
+		'4xl',
+		'5xl',
+		'6xl',
+		'7xl',
+		'8xl',
+		'9xl',
+		'10xl',
+		'11xl',
+		'12xl',
+	]
+
+  var currentIndex = 0;
+  const image = document.getElementById("image-bear");
+  const message = document.getElementById("message");
+  const buttonYes = document.getElementById("button-yes");
+  const buttonNo = document.getElementById("button-no");
+	const buttons = document.getElementById('buttons')
+  let className = "text-sm";
+  buttonYes?.addEventListener("click", () => {
+    image.src = images[1]
+		message.textContent = messages[1]
+		buttons.style.display = "none"
+  });
+  buttonNo?.addEventListener("click", () => {
+    buttonYes.classList.remove(className);
+    if (currentIndex == textNo.length-1) currentIndex = 0;
+    else {
+      currentIndex += 1;
+    }
+    className = "size-" + sizeButton[currentIndex];
+    buttonYes.classList.add(className);
+    buttonNo.textContent = textNo[currentIndex];
+  });
+</script>
+
